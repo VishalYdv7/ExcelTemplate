@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './styles.css';
 
 function UploadForm() {
   const [file, setFile] = useState(null);
@@ -13,10 +14,10 @@ function UploadForm() {
   };
 
   return (
-    <div className="form-container">
+    <div>
       <h2>Upload Excel Template</h2>
-      <input type="file" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Upload</button>
+      <input className='fileUpload' type="file" onChange={handleFileChange} />
+      <button className='button' onClick={handleUpload}>Upload</button>
     </div>
   );
 }

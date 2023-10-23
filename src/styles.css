@@ -1,0 +1,45 @@
+.button {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+  
+/* Add hover effect */
+.button:hover {
+    background-color: #333333;
+}
+
+/* Add disabled style */
+.button.disabled {
+    background-color: #cccccc;
+    color: #999999;
+    cursor: default;
+}
+
+.form-container input {
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    margin: 10px;
+}
+  
+.fileUpload{
+    background-color: #000000;
+    width: auto;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.form-container .btn {
+    width: 100px;
+    border-radius: 5px;
+}
+  
