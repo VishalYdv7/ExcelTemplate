@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './styles.css';
 
 function TemplateForm() {
   const [fields, setFields] = useState([]);
@@ -21,7 +22,7 @@ function TemplateForm() {
           placeholder={`Field ${index + 1}`}
         />
       ))}
-      <button onClick={() => setFields([...fields, ''])}>Add Field</button>
+      <button className='button' onClick={() => setFields([...fields, ''])}>Add Field</button>
     </div>
   );
 }

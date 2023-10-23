@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.css';
 
 function ExcelDownloadButton() {
   // Logic to handle Excel template download
@@ -20,7 +21,7 @@ function ExcelDownloadButton() {
 
   return (
     <div className="download-button">
-      <button onClick={handleDownload}>Download Excel Template</button>
+      <button className='button' onClick={handleDownload}>Download Excel Template</button>
     </div>
   );
 }
