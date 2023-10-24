@@ -2,10 +2,8 @@ import React from 'react';
 import './styles.css';
 
 function ExcelDownloadButton() {
-  // Logic to handle Excel template download
   const handleDownload = () => {
-    // Example: Fetch Excel template from /api/download endpoint
-    fetch('/api/download')
+    fetch('/download')
       .then((response) => response.blob())
       .then((blob) => {
         const url = window.URL.createObjectURL(new Blob([blob]));
