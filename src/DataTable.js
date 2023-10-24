@@ -1,16 +1,35 @@
 import React, { useState, useEffect } from 'react';
+import './styles.css';
 
 function DataTable() {
   const [data, setData] = useState([]);
+  const [columnHeaders, setColumnHeaders] = useState([]);
 
   useEffect(() => {
-    // Fetch data from the server and update the state
-    // Example: Fetch data from /api/data endpoint
-    fetch('/api/data')
+    fetch('/data')
       .then((response) => response.json())
-      .then((data) => setData(data))
+      .then((data) => {
+        setData(data);
+        setColumnHeaders(Object.keys(data[0]));
+      })
       .catch((error) => console.error('Error fetching data:', error));
-  }, []); // Empty dependency array ensures the effect runs once after the initial render
+  }, []); 
+
+  const renderTableHeaders = () => {
+    return columnHeaders.map((columnHeader, index) => (
+      <th key={index}>{columnHeader}</th>
+    ));
+  };
+
+  const renderTableBody = () => {
+    return data.map((row, index) => (
+      <tr key={index}>
+        {columnHeaders.map((columnHeader, index) => (
+          <td key={index}>{row[columnHeader]}</td>
+        ))}
+      </tr>
+    ));
+  };
 
   return (
     <div className="data-table">
@@ -18,19 +37,11 @@ function DataTable() {
       <table>
         <thead>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            {/* Add more table headers for other fields */}
+            {renderTableHeaders()}
           </tr>
         </thead>
         <tbody>
-          {data.map((row, index) => (
-            <tr key={index}>
-              <td>{row.firstName}</td>
-              <td>{row.lastName}</td>
-              {/* Render other data fields here */}
-            </tr>
-          ))}
+          {renderTableBody()}
         </tbody>
       </table>
     </div>

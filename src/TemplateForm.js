@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './styles.css';
+import axios from 'axios';
+axios.defaults.timeout = 100000;
 
 function TemplateForm() {
   const [fields, setFields] = useState([]);
@@ -8,6 +10,16 @@ function TemplateForm() {
     const updatedFields = [...fields];
     updatedFields[index] = e.target.value;
     setFields(updatedFields);
+  };
+
+  const handleSubmit = async () => {
+    const response = await axios.post('http://localhost:5000/', fields);
+  
+    if (response.status === 200) {
+      console.log('sucess');
+    } else {
+      console.log('err');
+    }
   };
 
   return (
@@ -23,6 +35,13 @@ function TemplateForm() {
         />
       ))}
       <button className='button' onClick={() => setFields([...fields, ''])}>Add Field</button>
+      <button className='button' onClick={handleSubmit}>
+        Upload these fields
+      </button>
+      <h2>Or</h2>
+      <button className='button' onClick={() => { window.location.href = '/upload';}}>
+        Upload excel file
+      </button>
     </div>
   );
 }
