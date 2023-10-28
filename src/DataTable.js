@@ -29,19 +29,29 @@ function DataTable() {
   }, []); // Empty dependency array ensures the effect runs once after the initial render
 
   const renderTableHeaders = () => {
-    return columnHeaders.map((columnHeader, index) => (
-      <th key={index}>{columnHeader}</th>
-    ));
+    // Check if columnHeaders is defined before mapping
+    if (columnHeaders && columnHeaders.length > 0) {
+      return columnHeaders.map((columnHeader, index) => (
+        <th key={index}>{columnHeader}</th>
+      ));
+    } else {
+      return null; // Return null if columnHeaders is not defined yet
+    }
   };
 
   const renderTableBody = () => {
-    return data.map((row, index) => (
-      <tr key={index}>
-        {columnHeaders.map((columnHeader, columnIndex) => (
-          <td key={columnIndex}>{row[columnIndex]}</td>
-        ))}
-      </tr>
-    ));
+    // Check if data is defined before mapping
+    if (data && data.length > 0 && columnHeaders && columnHeaders.length > 0) {
+      return data.map((row, index) => (
+        <tr key={index}>
+          {columnHeaders.map((columnHeader, columnIndex) => (
+            <td key={columnIndex}>{row[columnIndex]}</td>
+          ))}
+        </tr>
+      ));
+    } else {
+      return null; // Return null if data or columnHeaders is not defined yet
+    }
   };
 
   return (
