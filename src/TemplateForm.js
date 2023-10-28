@@ -13,8 +13,8 @@ function TemplateForm() {
   };
 
   const handleSubmit = async () => {
-    const response = await axios.post('http://localhost:5000/', fields);
-  
+    const formattedFields = fields.map(fieldName => ({ fieldName }));
+    const response = await axios.post('http://localhost:5000/', { fields: formattedFields });
     if (response.status === 200) {
       console.log('sucess');
     } else {
