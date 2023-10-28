@@ -1,0 +1,36 @@
+.data-table {
+    text-align: center; /* Center the content inside the data-table div */
+    margin: 0 auto; /* Center the data-table horizontally on the page */
+}
+  
+table {
+    width: 80%; /* Set the table width to 80% of the parent container */
+    margin: 0 auto; /* Center the table horizontally within the data-table div */
+    border-collapse: collapse; /* Collapse the borders between table cells */
+    margin-top: 20px; /* Add some space between the table and the heading */
+}
+
+.data-table th {
+    background-color: #eee;
+}
+
+.data-table tr:nth-child(even) {
+    background-color: #fff;
+}
+
+.data-table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+th, td {
+    border: 1px solid #060606; /* Add borders to table header and cells */
+    padding: 8px; /* Add padding to table header and cells */
+}
+  
+th {
+    background-color: #f2f2f2; /* Set a background color for table headers */
+}
+  
+h2 {
+    margin-bottom: 20px; /* Add some space below the heading */
+}
