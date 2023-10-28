@@ -15,7 +15,8 @@ function UploadForm() {
       if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || file.type === 'application/vnd.ms-excel') {
         const formData = new FormData();
         formData.append('file', file);
-        const response = await axios.post('/upload', formData);
+        const response = await axios.post('http://localhost:5000/upload', formData);
+        window.location.reload();
         if (response.status === 200) {
           console.log('File uploaded successfully!');
         } else {

@@ -1,20 +1,16 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import TemplateForm from './TemplateForm';
-import UploadForm from './UploadForm';
-import DataTable from './DataTable';
-import ExcelDownloadButton from './ExcelDownloadButton.js';
+import HomePage from './HomePage';
+import UploadPage from './UploadPage';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<TemplateForm />} />
-        <Route path="/upload" element={<UploadForm />} />
-        <Route path="/data" element={<DataTable />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/upload" element={<UploadPage />} />
       </Routes>
-      <ExcelDownloadButton />
     </div>
   );
 }

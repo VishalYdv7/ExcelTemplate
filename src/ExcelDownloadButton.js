@@ -3,7 +3,7 @@ import './styles.css';
 
 function ExcelDownloadButton() {
   const handleDownload = () => {
-    fetch('/download')
+    fetch('http://localhost:5000/download')
       .then((response) => {
         if (response.ok) {
           // Trigger the browser to download the file
@@ -26,7 +26,12 @@ function ExcelDownloadButton() {
   return (
     <div className="download-button">
       <button className='button' onClick={handleDownload}>Download Excel Template</button>
+      <h2>Or</h2>
+      <button className='button' onClick={() => { window.location.href = '/upload';}}>
+        Upload excel file
+      </button>
     </div>
+    
   );
 }
 

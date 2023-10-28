@@ -14,11 +14,15 @@ function TemplateForm() {
 
   const handleSubmit = async () => {
     const formattedFields = fields.map(fieldName => ({ fieldName }));
-    const response = await axios.post('http://localhost:5000/', { fields: formattedFields });
-    if (response.status === 200) {
-      console.log('sucess');
-    } else {
-      console.log('err');
+    try {
+      const response = await axios.post('http://localhost:5000/', { fields: formattedFields });
+      if (response.status === 200) {
+        console.log('Fields uploaded successfully!');
+      } else {
+        console.error('Error uploading fields:', response.data);
+      }
+    } catch (error) {
+      console.error('Error uploading fields:', error);
     }
   };
 
@@ -37,10 +41,6 @@ function TemplateForm() {
       <button className='button' onClick={() => setFields([...fields, ''])}>Add Field</button>
       <button className='button' onClick={handleSubmit}>
         Upload these fields
-      </button>
-      <h2>Or</h2>
-      <button className='button' onClick={() => { window.location.href = '/upload';}}>
-        Upload excel file
       </button>
     </div>
   );
