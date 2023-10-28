@@ -22,10 +22,10 @@ function DataTable() {
     fetchData();
     
     // Optionally, you can set up polling to fetch data at regular intervals
-    const intervalId = setInterval(fetchData, 5000); // Fetch data every 5 seconds
+    // const intervalId = setInterval(fetchData, 5000); // Fetch data every 5 seconds
     
     // Clean up the interval if the component is unmounted
-    return () => clearInterval(intervalId);
+    // return () => clearInterval(intervalId);
   }, []); // Empty dependency array ensures the effect runs once after the initial render
 
   const renderTableHeaders = () => {
